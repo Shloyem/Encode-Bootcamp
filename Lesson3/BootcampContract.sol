@@ -2,13 +2,11 @@
 
 pragma solidity 0.8.17;
 
-
 contract BootcampContract {
-
     uint256 number;
     address deployer;
 
-    constructor () {
+    constructor() {
         deployer = msg.sender;
     }
 
@@ -16,14 +14,14 @@ contract BootcampContract {
         number = num;
     }
 
-    function retrieve() public view returns (uint256){
+    function retrieve() public view returns (uint256) {
         return number;
     }
 
-    function returnAddress() external view returns (address){
-        return (msg.sender == deployer) ?
-            0x000000000000000000000000000000000000dEaD :
-            deployer ;
-
+    function returnAddress() external view returns (address) {
+        return
+            (msg.sender == deployer)
+                ? 0x000000000000000000000000000000000000dEaD
+                : deployer;
     }
 }

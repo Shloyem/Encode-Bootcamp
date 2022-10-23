@@ -1,0 +1,5 @@
+14) Two ways to allow a balance variable to be read from the contract:
+- 1. Making the variable public
+- 2. Getter function
+16) 1. We don't need the sender address because it is in msg.sender
+2. The implication of having the sender address as a parameter is a security risk of a user pretending to be someone else and transfering his funds.
