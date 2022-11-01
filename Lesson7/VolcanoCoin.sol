@@ -24,7 +24,7 @@ contract VolcanoCoin is Ownable {
         return totalSupply;
     }
 
-    function increaseTotalSupply() public {
+    function increaseTotalSupply() public onlyOwner {
         totalSupply += 1000;
         emit SupplyChanged(totalSupply);
     }
@@ -42,11 +42,21 @@ contract VolcanoCoin is Ownable {
     // 1. Here we get all of the records, without having to specify an array index and get 1 by 1.
     // 2. Here we can add conditions for access, there it's all public.
     // 3. Here we can change the returned values from the storage, unless the contract is verified and it will show.
-    function getPaymentRecords(address _user) public view returns (Payment[] memory) {
+    function getPaymentRecords(address _user)
+        public
+        view
+        returns (Payment[] memory)
+    {
         return payments[_user];
     }
 
-    function recordPayment(address _sender, address _recipient, uint _amount) private {
-        payments[_sender].push(Payment({amount: _amount, recipient: _recipient}));
+    function recordPayment(
+        address _sender,
+        address _recipient,
+        uint _amount
+    ) private {
+        payments[_sender].push(
+            Payment({amount: _amount, recipient: _recipient})
+        );
     }
 }
