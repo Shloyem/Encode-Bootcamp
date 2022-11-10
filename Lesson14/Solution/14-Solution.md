@@ -1,3 +1,7 @@
+TL;DR - Teams were either 
+1. Getting the right guess because it's not random and depends on block number.
+2. Mistaking to underflow the points variable.
+
 ## Oracle contract:
 
 1. getRandomNumber() is external: an intermediary contract can call this function, and get the winning "guess" for Lottery.makeAGuess.
@@ -22,7 +26,7 @@
           if (sent) {
               teamDetails[ii].points = 0;
 ```
-
+Also see [ReenterLottery contract](./ReenterLottery.sol) and [Reentrancy Steps](./ReentrancySteps.md) documents.
 This is incorrect because:
 
 - Does not follow the Checks-effects-interactions pattern: By calling external functions last, even if an attacker makes a recursive call to the original function they cannot abuse the state of the contract.
@@ -39,7 +43,7 @@ function makeAGuess(address _team, uint256 _guess) external returns (bool) {
 teamDetails[i].points -= 1;
 ```
 
-So making 1 mistake will rewards the team with 0 - 1 = uint256 MAX_UINT.
+So making 6 mistakes will rewards the team with (5(initial) - 6) = uint256 MAX_UINT.
 
 4. Because #2 grants 100 points and #3 gives MAX UINT, team made other teams guess correctly using #1 so they will have 100 and not MAX_UINT.
 

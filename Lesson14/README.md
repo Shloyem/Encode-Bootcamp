@@ -1,3 +1,10 @@
+# Lesson 15 - Continue Lottery Game
+
+1. Write a contract to form a re entrancy attack against the lottery contract.
+2. Discuss in your teams the merits of the different types of scalability solutions
+- Which solutions have you used ?
+- What are your criteria for choosing a solution ?
+
 # Lesson 14 - Lottery Game
 
 # Instructions
