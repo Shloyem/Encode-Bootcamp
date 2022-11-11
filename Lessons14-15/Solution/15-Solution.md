@@ -17,4 +17,4 @@ In order to re create the state, transaction data is needed, the data availabili
 where this data is stored and how to make sure it is available to the participants in the
 system.
 
-![OnOffChainDataComparison](./OnOffChainComp.jpg)
+![OnOffChainDataComparison](./OnOffChainComp.JPG)
