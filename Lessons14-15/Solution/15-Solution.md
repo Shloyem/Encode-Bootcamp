@@ -12,7 +12,8 @@ This is the comparison with criterias to choose between the two:
 | Per-transaction on-chain gas costs | Higher                                                                                                                                   | Lower (if data in a transaction is only used to verify, and not to cause state changes, then this data can be left out, whereas in an optimistic rollup it would need to be published in case it needs to be checked in a fraud proof) |
 | Off-chain computation costs        | Lower (though there is more need for many full nodes to redo the computation)                                                            | Higher (ZK-SNARK proving especially for general-purpose computation can be expensive, potentially many thousands of times more expensive than running the computation directly)                                                        |
 
-Another matter is Data Availability:
+Another matter is:
+#### Data Availability
 In order to re create the state, transaction data is needed, the data availability question is
 where this data is stored and how to make sure it is available to the participants in the
 system.
